@@ -205,11 +205,11 @@ vector<string> LinuxParser::CpuUtilization() {
 std::vector<std::string> LinuxParser::ReadStat(int pid) {
   std::ifstream stream(kProcDirectory + std::to_string(pid) + kStatFilename);
   std::string token;
-  std::vector<std::string> stat;
+  std::vector<std::string> stat{};
   if (stream.is_open()) {
     while (stream >> token) stat.push_back(token);
-    return stat;
   }
+  return stat;
 }
 float LinuxParser::CpuUtilization(int pid) {
   float utime, cutime, stime, cstime, starttime, total_time, seconds,
