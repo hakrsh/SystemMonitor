@@ -128,7 +128,7 @@ std::string LinuxParser::Ram(int pid) {
     while (std::getline(stream, line)) {
       std::stringstream linestream(line);
       linestream >> t1 >> t2;
-      if (t1 == "VmSize:") return t2;
+      if (t1 == "VmData:") return t2;
     }
   return "0";
 }
@@ -225,7 +225,7 @@ float LinuxParser::CpuUtilization(int pid) {
 
   total_time = utime + stime + cutime + cstime;
   seconds = LinuxParser::UpTime() - starttime / sysconf(_SC_CLK_TCK);
-  cpu_usage = 100 * ((total_time / sysconf(_SC_CLK_TCK)) / seconds);
+  cpu_usage = (total_time / sysconf(_SC_CLK_TCK)) / seconds;
   return cpu_usage;
 }
 // TODO: Read and return the number of jiffies for the system
