@@ -16,5 +16,5 @@ int main() {
   //   if(p < a) std::cout << "yupkiipp" << "\n";
   // }
 
-  std::cout << LinuxParser::ActiveJiffies(3347);
+  std::cout << LinuxParser::UpTime(3347) << "\n";
 }
