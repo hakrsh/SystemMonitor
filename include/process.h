@@ -18,6 +18,7 @@ class Process {
   std::string Ram();           // TODO: See src/process.cpp
   long UpTime();               // TODO: See src/process.cpp
   bool operator<(Process& a);  // TODO: See src/process.cpp
+  bool operator==(Process& a);
   Process(int pid) {
     pid_ = pid;
     user_ = LinuxParser::User(std::stoi(LinuxParser::Uid(pid)));

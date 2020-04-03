@@ -48,3 +48,7 @@ bool Process::operator<(Process& a) {
   return r1 < r2;  // but return fails - terminate called after throwing an instance of
                    // 'std::invalid_argument' what(): stoi Aborted
 }
+
+bool Process::operator==(Process& a){
+  return this->Pid() == a.Pid();
+}

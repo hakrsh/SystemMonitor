@@ -8,13 +8,9 @@
 
 int main() {
   // Process a(1);
-  // System sys;
+  System sys;
   // // std::cout << "a ram: " << std::stoi(a.Ram()) << "\n";
-  // for (auto p : sys.Processes()) {
-  //   // std::cout << std::stoi(p.Ram()) << " ";
-  //   // std::cout << (std::stoi(p.Ram()) < std::stoi(a.Ram())) << "\n";
-  //   if(p < a) std::cout << "yupkiipp" << "\n";
-  // }
-
-  std::cout << LinuxParser::UpTime(3347) << "\n";
+  std::cout << sys.Processes().size()<<"\n";
+  // for (auto &i : sys.Processes()) std::cout << i.Pid() << "\n";
+  std::cout << LinuxParser::UpTime(3438) << "\n";
 }

@@ -2,6 +2,7 @@
 
 #include <unistd.h>
 
+#include <algorithm>
 #include <cstddef>
 #include <set>
 #include <string>
@@ -30,6 +31,9 @@ vector<Process>& System::Processes() {
     System::processes_.push_back(p);
   }
   std::sort(System::processes_.begin(), System::processes_.end(), Compare);
+  System::processes_.erase(
+      std::unique(System::processes_.begin(), System::processes_.end()),
+      System::processes_.end());
   return System::processes_;
 }
 
