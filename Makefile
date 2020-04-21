@@ -10,14 +10,14 @@ build:
 	mkdir -p build
 	cd build && \
 	cmake .. && \
-	make
+	make -j$(`nproc`+1)
 
 .PHONY: debug
 debug:
 	mkdir -p build
 	cd build && \
 	cmake -DCMAKE_BUILD_TYPE=debug .. && \
-	make
+	make -j$(`nproc`+1)
 
 .PHONY: clean
 clean:
